@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name" translatable="false">News Application</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="nav_open" translatable="false">open</string>
+    <string name="nav_close" translatable="false">close</string>
+    <string name="langauge">Langauge</string>
+    <string name="theme_mode">Theme mode</string>
+    <string name="pick_your_category_nof_interest">Pick your category \nof interest</string>
+    <string name="sports">Sports</string>
+    <string name="science">Science</string>
+    <string name="business">Business</string>
+    <string name="technology">Technology</string>
+    <string name="english" translatable="false">English</string>
+    <string-array name="language_options">
+        <item>English</item>
+        <item>Arabic</item>
+    </string-array>
+    <string-array name="language_values">
+        <item>en</item>
+        <item>ar</item>
+    </string-array>
+    <string-array name="theme_options">
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+    <string-array name="theme_values">
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
+</resources>

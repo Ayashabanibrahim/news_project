@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#0624D1</color>
+    <color name="green">#068A3C</color>
+    <color name="teal">#06564B</color>
+    <color name="yellow">#FFAB00</color>
+
+
+        <!-- Dark Theme Colors -->
+        <color name="darkColorPrimary">#BB86FC</color>
+        <color name="darkColorSecondary">#03DAC6</color>
+        <color name="darkTextColorPrimary">#FFFFFF</color>
+        <color name="darkTextColorSecondary">#B0BEC5</color>
+        <color name="darkTextColorHint">#888888</color>
+        <color name="darkColorSurface">#121212</color>
+        <color name="darkColorDivider">#444444</color>
+        <color name="darkRippleColor">#666666</color>
+        <color name="darkColorError">#CF6679</color>
+        <color name="darkStatusBarColor">#3700B3</color>
+        <color name="darkNavigationBarColor">#121212</color>
+
+
+        <!-- Light Theme Colors -->
+        <color name="lightColorPrimary">#6200EE</color>
+        <color name="lightColorSecondary">#03DAC5</color>
+        <color name="lightTextColorPrimary">#000000</color>
+        <color name="lightTextColorSecondary">#666666</color>
+        <color name="lightTextColorHint">#999999</color>
+        <color name="lightColorSurface">#FFFFFF</color>
+        <color name="lightColorDivider">#E0E0E0</color>
+        <color name="lightRippleColor">#D1D1D1</color>
+        <color name="red">#B00020</color>
+        <color name="lightStatusBarColor">#3700B3</color>
+        <color name="lightNavigationBarColor">#FFFFFF</color>
+
+
+
+</resources>

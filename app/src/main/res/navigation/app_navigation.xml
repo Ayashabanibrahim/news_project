@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/categoriesFragment">
+
+
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.example.newsapplication.uiModel.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories">
+
+    </fragment>
+        <action
+            android:id="@+id/action_categoriesFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+
+
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.example.newsapplication.uiModel.NewsFragment"
+        android:label="fragment_sport"
+        tools:layout="@layout/fragment_news" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/dataFragment"
+        android:name="com.example.newsapplication.uiModel.DataFragment"
+        android:label="fragment_data"
+        tools:layout="@layout/fragment_data" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/favFragment"
+        android:name="com.example.newsapplication.uiModel.FavFragment"
+        android:label="fragment_fav"
+        tools:layout="@layout/fragment_fav" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.newsapplication.uiModel.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.newsapplication.uiModel.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/wepViewFragment"
+        android:name="com.example.newsapplication.uiModel.WepViewFragment"
+        android:label="fragment_wep_view"
+        tools:layout="@layout/fragment_wep_view" />
+</navigation>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+
+    <item
+        android:id="@+id/category"
+        android:title="Categories"
+        android:icon="@drawable/baseline_view_list_24"
+        />
+        <item
+            android:id="@+id/favourite"
+            android:icon="@drawable/baseline_favorite_24"
+            android:title="Favorite"/>
+        <item
+            android:id="@+id/search"
+            android:icon="@drawable/baseline_search_24"
+            android:title="Search"/>
+        <item
+            android:id="@+id/settings"
+            android:title="Settings"
+            android:icon="@drawable/baseline_settings_24"/>
+
+    </group>
+    <item
+        android:title="">
+
+        <menu>
+        <item
+            android:id="@+id/exit"
+            android:title="Exit"
+            android:icon="@drawable/baseline_exit_to_app_24"/>
+        </menu>
+    </item>
+
+
+
+
+
+</menu>

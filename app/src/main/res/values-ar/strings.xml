@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="langauge">اللغه</string>
+    <string name="theme_mode">وضع السمة</string>
+    <string name="pick_your_category_nof_interest">اختر فئة اهتمامك</string>
+    <string name="sports">الرياضة</string>
+    <string name="science">العلوم</string>
+    <string name="business">الاعمال</string>
+    <string name="technology">التكنولوجيا</string>
+</resources>

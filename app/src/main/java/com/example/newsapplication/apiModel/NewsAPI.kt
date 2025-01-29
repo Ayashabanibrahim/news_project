@@ -1,0 +1,17 @@
+package com.example.newsapplication.apiModel
+
+import com.example.newsapplication.apiModel.Constants.Companion.APIKEY
+import com.example.newsapplication.dataModel.NewsResponse
+import com.example.newsapplication.dataModel.SourcesResponse
+import retrofit2.Call
+import retrofit2.http.GET
+import retrofit2.http.Query
+
+interface NewsAPI {
+    @GET("top-headlines/sources")
+    fun getSources(@Query("category") category:String,@Query("apikey") apiKey:String=APIKEY):Call<SourcesResponse>
+    @GET("everything")
+    fun getArticles(@Query("source") sources:String,@Query("q") query: String="news",@Query("apikey") apiKey:String= APIKEY):Call<NewsResponse>
+   @GET("everything")
+   fun getResultsOfSearch(@Query("query") query:String,@Query("apikey") apiKey:String= APIKEY):Call<NewsResponse>
+}

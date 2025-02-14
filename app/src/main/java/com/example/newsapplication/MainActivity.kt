@@ -27,15 +27,15 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.viewpager2.widget.ViewPager2
+import com.example.newsapplication.apiModel.Constants.Companion.LANGUAGE_KEY
+import com.example.newsapplication.apiModel.Constants.Companion.PREFS_NAME
+import com.example.newsapplication.apiModel.Constants.Companion.THEME_KEY
 import com.example.newsapplication.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import java.util.Locale
 
 
-val PREFS_NAME = "AppSettingsPrefs"
-val LANGUAGE_KEY = "language"
-val THEME_KEY = "theme"
 //lateinit var  drawerLayout:DrawerLayout
 @Suppress("IMPLICIT_CAST_TO_ANY")
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {

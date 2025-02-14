@@ -6,11 +6,21 @@
     tools:context=".uiModel.DataFragment">
 
 
+   <androidx.core.widget.ContentLoadingProgressBar
+       android:id="@+id/progrss"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       style="?android:attr/progressBarStyleLarge"
+       android:layout_gravity="center_horizontal"
+
+       android:visibility="gone"
+       />
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/recycler"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        tools:listitem="@layout/item_view"
        />
+
 
 </FrameLayout>

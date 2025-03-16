@@ -33,20 +33,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     lateinit var sharedPreferences: SharedPreferences
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
+        sharedPreferences=this.getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE)
+        loadLanguage()
+        loadTheme()
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         view=binding.root
         //Apply saved setting using sharedPreference
-         sharedPreferences=this.getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE)
+//         sharedPreferences=this.getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE)
         // -------navigation drawer----
         initNavigationDrawer()
-        // load saved language
-        loadLanguage()
 
         // load saved theme mode
-        loadTheme()
+       // loadTheme()
+        changeModeIcon()
 
         //toggle theme
         toggleTheme()
@@ -176,11 +178,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             "Light" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                binding.themeMode.setImageResource(R.drawable.dark)
             }
             "Dark" -> {
                  AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                binding.themeMode.setImageResource(R.drawable.light)
             }
 
         }

@@ -14,6 +14,8 @@
     <string name="settings">الاعدادات</string>
     <string name="entertainment">الترفية</string>
     <string name="app_name">برنامج الاخبار</string>
+    <string name="english" >الانجليزية</string>
+    <string name="arabic" >العربية</string>
     <string name="breaking_news_just_for_you">أحدث الاخبار فقط من أجلك! 🌍</string>
     <string name="supervised_by_aya_shaban">Supervised by Aya Shaban</string>
     <string name="text_size" >حجم الخط</string>

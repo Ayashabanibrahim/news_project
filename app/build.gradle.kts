@@ -35,6 +35,7 @@ android {
     }
     buildFeatures {
         viewBinding=true
+
     }
 }
 
@@ -59,6 +60,11 @@ dependencies {
     implementation (libs.glide)
     annotationProcessor (libs.compiler)
    // implementation("androidx.navigation:navigation-safe-args-gradle-plugin:2.8.4")
+
+    //animation
+    implementation(libs.lottie)
+    implementation("com.airbnb.android:lottie:3.4.0")
+
 
 
 

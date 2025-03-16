@@ -6,35 +6,43 @@
 
 
 
-        <!-- Light Mode Theme -->
-        <style name="LightTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
-            <item name="colorPrimary">@color/lightColorPrimary</item>
-            <item name="colorSecondary">@color/lightColorSecondary</item>
-            <item name="android:windowBackground">@color/lightColorSurface</item>
-            <item name="android:textColorPrimary">@color/lightTextColorPrimary</item>
-            <item name="android:textColorSecondary">@color/lightTextColorSecondary</item>
-            <item name="android:statusBarColor">@color/lightStatusBarColor</item>
-            <item name="android:navigationBarColor">@color/lightNavigationBarColor</item>
-            <item name="android:colorControlHighlight">@color/lightRippleColor</item>
-        </style>
 
-        <!-- Dark Mode Theme -->
-        <style name="DarkTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
-            <item name="colorPrimary">@color/darkColorPrimary</item>
-            <item name="colorSecondary">@color/darkColorSecondary</item>
-            <item name="android:windowBackground">@color/darkColorSurface</item>
-            <item name="android:textColorPrimary">@color/darkTextColorPrimary</item>
-            <item name="android:textColorSecondary">@color/darkTextColorSecondary</item>
-            <item name="android:statusBarColor">@color/darkStatusBarColor</item>
-            <item name="android:navigationBarColor">@color/darkNavigationBarColor</item>
-            <item name="android:colorControlHighlight">@color/darkRippleColor</item>
-        </style>
 
-    <style name="TabLayoutTextStyle">
-    <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">16sp</item>
+
+
+
+
+    <style name="imgStyle">
+        <item name="android:layout_width">140dp</item>
+        <item name="android:layout_height">115dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
     </style>
+    <style name="textStyle">
+        <item name="android:layout_width">155dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="linearLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="horizontalLinearLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_weight">1.5</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+
 
 
 </resources>

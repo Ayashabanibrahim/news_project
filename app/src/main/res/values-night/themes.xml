@@ -7,7 +7,80 @@
         <item name="colorPrimaryVariant">@color/teal</item>
         <item name="android:statusBarColor">@color/teal</item>
     </style>
-    <style name="ScreenBackground"><item name="android:background">@color/darkColorSurface</item></style>
-    <style name="NavigationBackground"><item name="android:background">@color/darkNavigationBarColor</item></style>
-    <style name="TextColor"><item name="android:textColor">@color/blue</item></style>
+
+        <!-- الثيم الأساسي للتطبيق
+        <style name="Theme.MyApp" parent="Theme.Material3.Dark">
+            <item name="android:colorBackground">@color/backgroundColor_dark</item>
+            <item name="android:textColorPrimary">@color/textColor_dark</item>
+            <item name="colorPrimary">@color/toolbarColor</item>
+        </style> -->
+
+        <!-- لون الخلفية العامة للشاشات -->
+        <style name="ScreenBackground">
+            <item name="android:background">@color/backgroundColor_dark</item>
+        </style>
+
+        <!-- لون خلفية الـ Navigation Drawer -->
+        <style name="NavigationBackground">
+            <item name="android:background">@color/backgroundColor_dark</item>
+        </style>
+
+        <!-- لون النصوص -->
+        <style name="TextColor">
+            <item name="android:textColor">@color/textColor_dark</item>
+        </style>
+
+
+        <!-- ستايل للعناوين -->
+        <style name="TitleText">
+            <item name="android:textColor">@color/toolbarColor</item>
+
+        </style>
+
+
+        <style  name="navigationItemStyle">
+            <item name="android:textColor">@color/drawerItemColor_dark</item>
+            <item name="navigationIconTint">@color/drawerIconColorDark</item>
+        </style>
+
+    <style name="dropItemStyle">
+        <item name="android:textColor">@color/navHeaderTextColorDark</item>
+        <item name="android:background">@color/navHeaderBackgroundDark</item>
+    </style>
+
+    <style name="TabLayoutTextStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="tabTextColor">@color/tabTextColorDark</item>
+        <item name="tabIndicatorColor">@color/tabIndicatorColorDark</item>
+        <item name="tabSelectedTextColor">@color/tabSelectedTextColorDark</item>
+        <item name="android:background">#0C3732</item>
+    </style>
+    <style name="ToolbarStyle">
+        <item name="android:background">#045248</item>
+        <item name="android:textColor">@color/toolbarTextColorDark</item>
+        <item name="titleTextColor">@color/toolbarTextColorDark</item>
+    </style>
+
+    <style name="NavigationHeaderStyle">
+        <item name="android:background">#045248</item>
+        <item name="android:textColor">@color/navHeaderTextColorDark</item>
+    </style>
+
+    <style name="cardViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardElevation">20dp</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="android:layout_marginHorizontal">20dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="cardPreventCornerOverlap">true</item>
+        <item name="cardBackgroundColor">@color/teal</item>
+    </style>
+    <style name="cardViewColor">
+        <item name="cardBackgroundColor">@color/teal</item>
+    </style>
+
+
 </resources>

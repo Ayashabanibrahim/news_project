@@ -8,5 +8,7 @@ class Constants {
        const val PREFS_NAME = "AppSettingsPrefs"
       const  val LANGUAGE_KEY = "language"
       const  val THEME_KEY = "theme"
+      const  val SIZE_KEY = "size"
+
     }
 }

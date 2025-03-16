@@ -9,12 +9,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="false"
+        android:supportsRtl="true"
         android:theme="@style/Theme.NewsApplication"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
-            android:configChanges="uiMode"
+            android:name=".uiModel.MainActivity"
+            android:configChanges="uiMode|locale|screenSize|smallestScreenSize|screenLayout"
             android:exported="false" />
         <activity
             android:name=".uiModel.SplashScreen"

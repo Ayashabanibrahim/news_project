@@ -7,9 +7,6 @@
         <item name="android:statusBarColor">@color/teal</item>
     </style>
 
-    <style name="ScreenBackground"><item name="android:background">@color/white</item></style>
-    <style name="NavigationBackground"><item name="android:background">@color/white</item></style>
-    <style name="TextColor"><item name="android:textColor">@color/teal</item></style>
 
 
     <style name="Theme.NewsApplication" parent="Base.Theme.NewsApplication" />
@@ -17,4 +14,79 @@
         <item name="android:background">@drawable/spinner_back</item>
     </style>
 
+
+
+        <!-- الثيم الأساسي للتطبيق -
+        <style name="Theme.MyApp" parent="Theme.Material3.Light">
+            <item name="android:colorBackground">@color/backgroundColor_light</item>
+            <item name="android:textColorPrimary">@color/textColor_light</item>
+            <item name="colorPrimary">@color/toolbarColor</item>
+        </style> -->
+
+        <!-- لون الخلفية العامة للشاشات -->
+        <style name="ScreenBackground">
+            <item name="android:background">@color/backgroundColor_light</item>
+        </style>
+
+        <!-- لون خلفية الـ Navigation Drawer -->
+        <style name="NavigationBackground">
+            <item name="android:background">@color/drawerColor_light</item>
+        </style>
+
+        <!-- لون النصوص -->
+        <style name="TextColor">
+            <item name="android:textColor">@color/textColor_light</item>
+        </style>
+
+
+
+        <!-- ستايل للعناوين -->
+        <style name="TitleText">
+            <item name="android:textColor">@color/toolbarColor</item>
+
+        </style>
+
+    <style  name="navigationItemStyle">
+        <item name="android:textColor">@color/drawerItemColor_light</item>
+        <item name="navigationIconTint">@color/drawerIconColorLight</item>
+    </style>
+
+    <style name="dropItemStyle">
+        <item name="android:background">@color/toolbarBackgroundLight</item>
+        <item name="android:textColor">@color/toolbarTextColorLight</item>
+    </style>
+
+    <style name="TabLayoutTextStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="tabTextColor">@color/tabTextColorLight</item>
+        <item name="tabIndicatorColor">@color/tabIndicatorColorLight</item>
+        <item name="tabSelectedTextColor">@color/tabSelectedTextColorLight</item>
+        <item name="android:background">@color/tabBackgroundLight</item>
+    </style>
+    <style name="ToolbarStyle">
+        <item name="android:background">@color/navHeaderBackgroundLight</item>
+        <item name="android:textColor">@color/toolbarTextColorLight</item>
+        <item name="titleTextColor">@color/toolbarTextColorLight</item>
+    </style>
+
+    <style name="NavigationHeaderStyle">
+        <item name="android:background">@color/navHeaderBackgroundLight</item>
+        <item name="android:textColor">@color/navHeaderTextColorLight</item>
+    </style>
+
+    <style name="cardViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardElevation">20dp</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="android:layout_marginHorizontal">20dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="cardPreventCornerOverlap">true</item>
+        <item name="cardBackgroundColor">@color/navHeaderBackgroundLight</item>
+    </style>
+    <style name="cardViewColor">
+        <item name="cardBackgroundColor">@color/drawerColor_light</item>
+    </style>
 </resources>

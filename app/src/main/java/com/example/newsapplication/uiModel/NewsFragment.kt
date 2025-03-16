@@ -7,66 +7,121 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.newsapplication.R
-import com.example.newsapplication.apiModel.RetrofitInstance.Companion.apiInterface
+import com.example.newsapplication.viewModel.NewsViewModel
 import com.example.newsapplication.adapterModel.ViewPagerAdapter
-import com.example.newsapplication.dataModel.Source
-import com.example.newsapplication.dataModel.SourcesResponse
+import com.example.newsapplication.databinding.FragmentNewsBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class NewsFragment : Fragment() {
-   //val binding= FragmentSportBinding.inflate(layoutInflater)
+    private  val TAG = "NewsFragment"
+    private val viewModel:NewsViewModel by  viewModels()
+    private val newsViewModel:NewsViewModel by  activityViewModels()
+    private lateinit var binding:FragmentNewsBinding
     lateinit var tabLayout: TabLayout
     lateinit var viewPager2: ViewPager2
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding= FragmentNewsBinding.inflate(inflater,container,false)
 
-           val view= inflater.inflate(R.layout.fragment_news, container, false)
-        tabLayout=view.findViewById(R.id.tab_layout)
-        viewPager2=view.findViewById(R.id.viewPager)
-        var sources:MutableList<Source> = mutableListOf()
-        val category=arguments?.getString("category")
-       Log.d("log1","category: $category ")
-         apiInterface.getSources( category!!).enqueue(object:Callback<SourcesResponse>{
-            @SuppressLint("NotifyDataSetChanged")
-            override fun onResponse(call: Call<SourcesResponse>, response: Response<SourcesResponse>) {
-               if(response.isSuccessful&&isAdded){
-                   sources.clear()
-                   response.body()?.sources?.let { sources.addAll(it)}
-                   val adapter = ViewPagerAdapter(requireActivity(),sources,category)
-                   viewPager2.adapter=adapter
-                   viewPager2.adapter?.notifyDataSetChanged()
-                   TabLayoutMediator(tabLayout,viewPager2){ tab,position ->
-                       tab.text= sources[position].name
-                     }.attach()
-               }
-                else{
-                    Log.d("log","error:${response.errorBody()?.string()}")
-               }
+        return binding.root
+    }
+
+    @SuppressLint("SuspiciousIndentation")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+         binding.progressBar.show()
+        tabLayout=binding.tabLayout
+        viewPager2=binding.viewPager
+        val category=arguments?.getString("category","")
+        Log.d( TAG,"category: $category ")
+
+        setTabs(category)
+
+         saveLastSelectedTab()
+
+        handelVisibility()
+
+    }
+
+    private fun handelVisibility() {
+        val activity=requireActivity()
+        val searchView=activity.findViewById<androidx.appcompat.widget.SearchView>(R.id.search_view)
+        val search=activity.findViewById <ImageView>(R.id.search)
+        val themeMode=activity.findViewById <ImageView>(R.id.theme_mode)
+        val navigation=activity.findViewById <com.google.android.material.navigation.NavigationView>(R.id.nav_view)
+        themeMode.visibility=View.GONE
+        search.visibility=View.VISIBLE
+        searchView.visibility=View.GONE
+        navigation.visibility=View.GONE
+        search.setOnClickListener {
+            search.visibility=View.GONE
+            searchView.visibility=View.VISIBLE
+            searchView.isIconified=false
+        }
+        searchView.setOnCloseListener {
+            searchView.visibility=View.GONE
+            search.visibility=View.VISIBLE
+            false
+        }
+    }
+
+
+
+    private fun setTabs(category: String?) {
+        viewModel.setCategory(category!!)
+        viewModel.category.observe(viewLifecycleOwner, Observer {
+            viewModel.getSources()
+        })
+        viewModel.sources.observe(viewLifecycleOwner,Observer { sources ->
+            val adapter = ViewPagerAdapter(requireActivity(), sources)
+            viewPager2.adapter = adapter
+            // viewPager2.adapter?.notifyDataSetChanged()
+            TabLayoutMediator(tabLayout, viewPager2) { tab, pos ->
+                tab.text = sources[pos].name
+            }.attach()
+            binding.progressBar.hide()
+        })
+
+    }
+    private fun saveLastSelectedTab() {
+        viewPager2.registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                viewModel.lastSelectedTabPosition=position
             }
+        })
+    }
 
-             override fun onFailure(call: Call<SourcesResponse>, t: Throwable) {
-                 Log.d("log","source error")
-             }
-
-         })
-
-        return  view
-
-
+    override fun onDestroy() {
+        super.onDestroy()
+       // newsViewModel.selectedPositionStates.clear()
+        (activity as MainActivity).supportActionBar?.title=getString(R.string.app_name)
+            val activity=requireActivity()
+            val searchView=activity.findViewById<androidx.appcompat.widget.SearchView>(R.id.search_view)
+            val search=activity.findViewById <ImageView>(R.id.search)
+            val themeMode=activity.findViewById <ImageView>(R.id.theme_mode)
+            val navigation=activity.findViewById <com.google.android.material.navigation.NavigationView>(R.id.nav_view)
+            search.visibility=View.GONE
+            searchView.visibility=View.GONE
+            navigation.visibility=View.VISIBLE
+            themeMode.visibility=View.VISIBLE
 
     }
 
 
+
+
+
 }
-
-

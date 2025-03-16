@@ -6,35 +6,57 @@
     <color name="green">#068A3C</color>
     <color name="teal">#06564B</color>
     <color name="yellow">#FFAB00</color>
+    <color name="orange">#C85907</color>
+    <color name="ligthOrange">#DC9F70</color>
+    <color name="red">#D30606</color>
+
 
 
         <!-- Dark Theme Colors -->
-        <color name="darkColorPrimary">#BB86FC</color>
-        <color name="darkColorSecondary">#03DAC6</color>
-        <color name="darkTextColorPrimary">#FFFFFF</color>
-        <color name="darkTextColorSecondary">#B0BEC5</color>
-        <color name="darkTextColorHint">#888888</color>
-        <color name="darkColorSurface">#121212</color>
-        <color name="darkColorDivider">#444444</color>
-        <color name="darkRippleColor">#666666</color>
-        <color name="darkColorError">#CF6679</color>
-        <color name="darkStatusBarColor">#3700B3</color>
-        <color name="darkNavigationBarColor">#121212</color>
 
+        <color name="drawerItemColorDark">#D8F3ED</color> <!-- لون النص في القائمة -->
+        <color name="drawerIconColorDark">#04B289</color> <!-- لون الأيقونات -->
+        <color name="backgroundColor_dark">#0A2E2A</color>
+        <color name="textColor_dark">#D8F3ED</color>
+        <color name="toolbarColor">#06564B</color>
+        <color name="drawerColor_dark">#0F3E3A</color>
+        <color name="drawerItemColor_dark">#D8F3ED</color>
+        <color name="drawerItemSelected_dark">#04B289</color>
+        <color name="drawerIconColor_dark">#04B289</color>
+        <color name="itemColor_dark">#04B289</color>
+        <color name="itemTextColor_dark">#121212</color>
+    <color name="tabTextColorDark">#DDDDDD</color> <!-- لون نص التابات -->
+    <color name="tabIndicatorColorDark">#04B289</color> <!-- لون المؤشر -->
+    <color name="tabSelectedTextColorDark">#FF5252</color> <!-- لون النص عند التحديد -->
+    <color name="tabBackgroundDark">#121212</color> <!-- خلفية التابات -->
+    <color name="toolbarBackgroundDark">#032A25</color> <!-- أخضر داكن جدًا -->
+    <color name="toolbarTextColorDark">#D8F3ED</color> <!-- أخضر فاتح مائل للأبيض -->
 
+    <!-- ألوان هيدر الـ Navigation Drawer -->
+    <color name="navHeaderBackgroundDark">#021E1A</color> <!-- أخضر مائل إلى الأسود -->
+    <color name="navHeaderTextColorDark">#A8E6CF</color> <!-- أخضر فاتح -->
         <!-- Light Theme Colors -->
-        <color name="lightColorPrimary">#6200EE</color>
-        <color name="lightColorSecondary">#03DAC5</color>
-        <color name="lightTextColorPrimary">#000000</color>
-        <color name="lightTextColorSecondary">#666666</color>
-        <color name="lightTextColorHint">#999999</color>
-        <color name="lightColorSurface">#FFFFFF</color>
-        <color name="lightColorDivider">#E0E0E0</color>
-        <color name="lightRippleColor">#D1D1D1</color>
-        <color name="red">#B00020</color>
-        <color name="lightStatusBarColor">#3700B3</color>
-        <color name="lightNavigationBarColor">#FFFFFF</color>
 
+        <color name="drawerItemColorLight">#1E3A37</color> <!-- لون النص في القائمة -->
+        <color name="drawerIconColorLight">#06564B</color> <!-- لون الأيقونات -->
+        <color name="backgroundColor_light">#F0F8F6</color>
+        <color name="textColor_light">#1E3A37</color>
+        <color name="drawerColor_light">#FFFFFF</color>
+        <color name="drawerItemColor_light">#1E3A37</color>
+        <color name="drawerItemSelected_light">#049372</color>
+        <color name="drawerIconColor_light">#06564B</color>
+        <color name="itemColor_light">#049372</color>
+        <color name="itemTextColor_light">#FFFFFF</color>
+    <color name="tabTextColorLight">#444444</color> <!-- لون نص التابات -->
+    <color name="tabIndicatorColorLight">#06564B</color> <!-- لون المؤشر -->
+    <color name="tabSelectedTextColorLight">#D32F2F</color> <!-- لون النص عند التحديد -->
+    <color name="tabBackgroundLight">#FFFFFF</color> <!-- خلفية التابات -->
 
+    <color name="toolbarBackgroundLight">#06564B</color> <!-- أخضر داكن -->
+    <color name="toolbarTextColorLight">#FFFFFF</color> <!-- أبيض -->
+
+    <!-- ألوان هيدر الـ Navigation Drawer -->
+    <color name="navHeaderBackgroundLight">#048C7F</color> <!-- أخضر مائل للأزرق -->
+    <color name="navHeaderTextColorLight">#F0F0F0</color> <!-- رمادي فاتح -->
 
 </resources>

@@ -10,30 +10,10 @@
     tools:context=".uiModel.SettingFragment">
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:text="@string/theme_mode"
-       style="@style/TextColor"
-        android:textStyle="bold|italic"
-        android:layout_margin="20dp"
-        />
-    <Spinner
-        android:id="@+id/spinner_theme"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_margin="20dp"
-        android:layout_marginBottom="30dp"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:spinnerMode="dropdown"
-        android:minHeight="48dp"
-        android:paddingLeft="5dp"
-        android:background="@drawable/spinner_back"
-        />
+
 
     <TextView
+        android:id="@+id/lang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="25sp"
@@ -41,6 +21,7 @@
         style="@style/TextColor"
         android:textStyle="bold|italic"
         android:layout_margin="20dp"
+        android:layout_marginEnd="50dp"
         />
     <Spinner
         android:id="@+id/spinner_language"
@@ -54,6 +35,32 @@
         android:minHeight="48dp"
         android:paddingLeft="5dp"
         android:background="@drawable/spinner_back"
+        />
+    <TextView
+        android:id="@+id/size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="@string/text_size"
+        style="@style/TextColor"
+        android:textStyle="bold|italic"
+        android:layout_margin="20dp"
+        />
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:paddingLeft="5dp"
+        android:max="40"
+        android:progress="16"
+        android:background="@drawable/spinner_back"
+        android:progressTint="@color/black"
+        android:thumbTint="@color/drawerIconColor_light"
+        android:progressBackgroundTint="@color/black"
         />
 
 

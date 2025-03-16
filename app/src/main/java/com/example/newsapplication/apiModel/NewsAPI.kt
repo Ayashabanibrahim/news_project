@@ -8,10 +8,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface NewsAPI {
-    @GET("top-headlines/sources")
-    fun getSources(@Query("category") category:String,@Query("apikey") apiKey:String=APIKEY):Call<SourcesResponse>
-    @GET("everything")
-    fun getArticles(@Query("source") sources:String,@Query("q") query: String="news",@Query("apikey") apiKey:String= APIKEY):Call<NewsResponse>
+    @GET("sources")
+    fun getSources(@Query("category") category:String,@Query("apikey") apiKey:String=APIKEY,@Query("Language")language:String="en"):Call<SourcesResponse>
    @GET("everything")
-   fun getResultsOfSearch(@Query("query") query:String,@Query("apikey") apiKey:String= APIKEY):Call<NewsResponse>
+   fun getResults(@Query("sources") source:String  ,@Query("q") query:String,@Query("apikey") apiKey:String= APIKEY ):Call<NewsResponse>
 }

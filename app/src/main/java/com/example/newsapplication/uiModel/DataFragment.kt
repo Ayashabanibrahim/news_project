@@ -52,8 +52,7 @@ class DataFragment( ) : Fragment()  {
         Log.d(TAG, "onViewCreated: $sourceId")
         // binding.progressBar.show()
         setSearchTextQuery()
-
-        getResult( )
+        getResult()
 
 
     }

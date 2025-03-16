@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.Spinner
 import com.example.newsapplication.R
@@ -41,7 +42,9 @@ class SettingFragment : Fragment() {
 
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).supportActionBar?.title=getString(R.string.settings)
-
+        val activity=requireActivity()
+        val themeMode=activity.findViewById <ImageView>(R.id.theme_mode)
+        themeMode.visibility=View.GONE
         sharedPreferences=requireContext().getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE)
 
         val spinnerLanguage =binding.spinnerLanguage
@@ -83,12 +86,8 @@ class SettingFragment : Fragment() {
         spinnerLanguage.adapter=adapterLanguage
         //get saved language
         val savedLanguage=sharedPreferences.getString(LANGUAGE_KEY,"English")
-        //get position of saved language
-        val positionLanguage=adapterLanguage?.getPosition(savedLanguage)
-        //set saved language to spinner
-        if (positionLanguage != null) {
-            spinnerLanguage.setSelection(positionLanguage)
-        }
+
+        spinnerLanguage.setSelection(if(savedLanguage=="English") 0 else 1)
     }
     private fun setLanguage(spinnerLanguage: Spinner) {
         spinnerLanguage?.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
@@ -100,6 +99,7 @@ class SettingFragment : Fragment() {
                     changeLanguage(selectedLanguage)
                     saveLanguage(selectedLanguage)
                 }
+
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
 
@@ -117,12 +117,11 @@ class SettingFragment : Fragment() {
             "Arabic" -> Locale("ar")
             else -> Locale.getDefault()
         }
-
         Locale.setDefault(local)
         val config = Configuration()
         config.setLocale(local)
-        resources.updateConfiguration(config, resources.displayMetrics)
-        (activity as? MainActivity)?.recreate()
+        resources.updateConfiguration(config,resources.displayMetrics)
+        requireActivity().recreate()
     }
     private fun loadSeekBarSize( ) {
         binding.seekBar.progress= sharedPreferences.getFloat(SIZE_KEY,25f).toInt()
@@ -130,9 +129,6 @@ class SettingFragment : Fragment() {
     private fun changeTextSize(seekBar: SeekBar) {
         seekBar.setOnSeekBarChangeListener(object :SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                val minSize=15f
-                val mxSize=40f
-                val size=minSize+(p1.toFloat()/seekBar.max)*(mxSize-minSize)
                 saveSize(p1.toFloat())
             }
 
@@ -144,6 +140,13 @@ class SettingFragment : Fragment() {
     }
     private fun saveSize(selectedSize:Float) {
         sharedPreferences.edit().putFloat(SIZE_KEY,selectedSize).apply()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        val activity=requireActivity()
+        val themeMode=activity.findViewById <ImageView>(R.id.theme_mode)
+        themeMode.visibility=View.VISIBLE
     }
 
 

@@ -49,8 +49,6 @@ class NewsFragment : Fragment() {
 
         setTabs(category)
 
-         saveLastSelectedTab()
-
         handelVisibility()
 
     }
@@ -60,11 +58,9 @@ class NewsFragment : Fragment() {
         val searchView=activity.findViewById<androidx.appcompat.widget.SearchView>(R.id.search_view)
         val search=activity.findViewById <ImageView>(R.id.search)
         val themeMode=activity.findViewById <ImageView>(R.id.theme_mode)
-        val navigation=activity.findViewById <com.google.android.material.navigation.NavigationView>(R.id.nav_view)
         themeMode.visibility=View.GONE
         search.visibility=View.VISIBLE
         searchView.visibility=View.GONE
-        navigation.visibility=View.GONE
         search.setOnClickListener {
             search.visibility=View.GONE
             searchView.visibility=View.VISIBLE
@@ -92,30 +88,44 @@ class NewsFragment : Fragment() {
                 tab.text = sources[pos].name
             }.attach()
             binding.progressBar.hide()
+            viewPager2.setCurrentItem(viewModel.lastSelectedTabPosition, false)
+            saveLastSelectedTab()
         })
+
 
     }
     private fun saveLastSelectedTab() {
+
         viewPager2.registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback(){
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 viewModel.lastSelectedTabPosition=position
+                Log.d(TAG, "onPageSelected:  ${ viewModel.lastSelectedTabPosition}")
             }
         })
     }
 
+    override fun onResume() {
+        super.onResume()
+        val activity=requireActivity()
+        val searchView=activity.findViewById<androidx.appcompat.widget.SearchView>(R.id.search_view)
+        val search=activity.findViewById <ImageView>(R.id.search)
+        val themeMode=activity.findViewById <ImageView>(R.id.theme_mode)
+        themeMode.visibility=View.GONE
+        search.visibility=View.VISIBLE
+        searchView.visibility=View.GONE
+    }
+
     override fun onDestroy() {
         super.onDestroy()
-       // newsViewModel.selectedPositionStates.clear()
+        newsViewModel.selectedPositionStates.clear()
         (activity as MainActivity).supportActionBar?.title=getString(R.string.app_name)
             val activity=requireActivity()
             val searchView=activity.findViewById<androidx.appcompat.widget.SearchView>(R.id.search_view)
             val search=activity.findViewById <ImageView>(R.id.search)
             val themeMode=activity.findViewById <ImageView>(R.id.theme_mode)
-            val navigation=activity.findViewById <com.google.android.material.navigation.NavigationView>(R.id.nav_view)
             search.visibility=View.GONE
             searchView.visibility=View.GONE
-            navigation.visibility=View.VISIBLE
             themeMode.visibility=View.VISIBLE
 
     }

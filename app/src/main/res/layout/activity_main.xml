@@ -36,8 +36,8 @@
                 />
             <ImageView
                 android:id="@+id/share"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:src="@drawable/share"
                 android:layout_gravity="end"
                 android:layout_marginEnd="30dp"

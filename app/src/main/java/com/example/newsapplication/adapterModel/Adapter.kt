@@ -1,14 +1,12 @@
 package com.example.newsapplication.adapterModel
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -18,11 +16,15 @@ import com.bumptech.glide.Glide
 import com.example.newsapplication.R
 import com.example.newsapplication.apiModel.Constants.Companion.SIZE_KEY
 import com.example.newsapplication.dataModel.Article
+import com.example.newsapplication.uiModel.NewsFragment
 import com.example.newsapplication.viewModel.NewsViewModel
 
 class Adapter(
-    val sharedPreferences: SharedPreferences
+    val sharedPreferences: SharedPreferences,
+    val newsViewModel: NewsViewModel,
+    val sourceId:String
 ):RecyclerView.Adapter<Adapter.ViewHolder>() {
+    private   val TAG = "Adapter"
     var newsList:List<Article> = listOf()
     class ViewHolder(view:View):RecyclerView.ViewHolder(view) {
         val itemLayout=view.findViewById<LinearLayout>(R.id.item_layout)
@@ -58,6 +60,8 @@ class Adapter(
         val size=sharedPreferences.getFloat(SIZE_KEY,25f)
         holder.bind(new,size)
         holder.itemLayout.setOnClickListener {
+            newsViewModel.selectedPositionStates[sourceId]=position
+            Log.d(TAG, "onBindViewHolderMap: ${newsViewModel.selectedPositionStates}")
             val args=Bundle()
             args.putString("url",new.url)
            val navController=holder.itemView.findNavController()

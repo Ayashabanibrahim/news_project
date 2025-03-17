@@ -30,7 +30,7 @@ class NewsViewModel(val state:SavedStateHandle):ViewModel() {
         }
     }
     var lastSelectedTabPosition:Int=0
-    var selectedPositionStates= mutableMapOf<String,Parcelable?>()
+    var selectedPositionStates= mutableMapOf<String,Int>()
 
      private val _sources=MutableLiveData<MutableList<Source>>()
     val sources:LiveData<MutableList<Source>> get() = _sources

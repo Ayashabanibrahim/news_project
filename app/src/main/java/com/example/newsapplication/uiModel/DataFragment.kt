@@ -45,12 +45,11 @@ class DataFragment( ) : Fragment()  {
         super.onViewCreated(view, savedInstanceState)
         sharedPreferences=requireContext().getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE)
         recycler=binding.recycler
-        adapter= Adapter(sharedPreferences)
+        sourceId=arguments?.getString("sourceId","")?:""
+        adapter= Adapter(sharedPreferences,newsViewModel,sourceId)
         recycler.layoutManager=LinearLayoutManager(context)
         recycler.adapter= this.adapter
-         sourceId=arguments?.getString("sourceId","")?:""
         Log.d(TAG, "onViewCreated: $sourceId")
-        // binding.progressBar.show()
         setSearchTextQuery()
         getResult()
 
@@ -60,28 +59,37 @@ class DataFragment( ) : Fragment()  {
     private fun getResult() {
         binding.progressBar.show()
         viewModel.setSourceId(sourceId)
-        viewModel.sourceId.observe(viewLifecycleOwner, Observer {
+        viewModel.sourceId.observe(viewLifecycleOwner, Observer {newsSourceId ->
+            if(newsSourceId==sourceId)
             viewModel.getResult(sourceId,"")
         })
         Log.d(TAG, "getResult: $sourceId")
 
         viewModel.articles.observe(viewLifecycleOwner, Observer { articles->
-            articles.let {
-                if(articles.isEmpty()){
-                   binding.notFound.visibility=View.VISIBLE
+            articles.let {article->
+                if(article.isEmpty()){
+                    if(viewModel.query.value!="")
+                        binding.notFound.visibility=View.GONE
+                    else
+                        binding.notFound.visibility=View.VISIBLE
+
                 }
-                else if( adapter.newsList !=articles) {
-                    adapter.submitList(articles)
+                else if( adapter.newsList !=article) {
+                    adapter.submitList(article)
+                    if(viewModel.query.value=="")
                     binding.notFound.visibility=View.GONE
                 }
             }
             binding.progressBar.hide()
-            recycler.post {
-               // recycler.layoutManager?.scrollToPosition(
-                    //viewModel.lastRecyclerViewPosition.value ?: 0 )
-                val savedState=newsViewModel.selectedPositionStates[sourceId]
-                recycler.layoutManager?.onRestoreInstanceState(savedState)
+            newsViewModel.selectedPositionStates[sourceId]?.let {
+                recycler.post {
+                    recycler.layoutManager?.scrollToPosition(it+1)
+                }
+                Log.d(TAG, "getResult: $it")
             }
+            Log.d(TAG, "map: ${newsViewModel.selectedPositionStates}")
+
+
 
         })
     }
@@ -130,20 +138,8 @@ class DataFragment( ) : Fragment()  {
         })
     }
 
-    override fun onPause() {
-        super.onPause()
-        val savedState=recycler.layoutManager?.onSaveInstanceState()
-        newsViewModel.selectedPositionStates[sourceId]=savedState
-    }
 
-    override fun onResume() {
-        super.onResume()
-       // binding.progressBar.show()
-       // getResult()
-        val savedState=newsViewModel.selectedPositionStates[sourceId]
-        recycler.layoutManager?.onRestoreInstanceState(savedState)
-       // viewModel.lastRecyclerViewPosition.value=0
-    }
+
 
 
     companion object {

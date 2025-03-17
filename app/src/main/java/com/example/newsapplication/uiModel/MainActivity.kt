@@ -47,12 +47,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         initNavigationDrawer()
 
         // load saved theme mode
-       // loadTheme()
-        changeModeIcon()
 
         //toggle theme
         toggleTheme()
 
+       // loadTheme()
+        changeModeIcon()
 
 
 
@@ -150,12 +150,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun changeTheme(){
         val savedTheme= sharedPreferences.getString(THEME_KEY,"Light")
         if(savedTheme=="Light") {
-            saveTheme("Dark")
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            saveTheme("Dark")
+
         }
         else{
-            saveTheme("Light")
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            saveTheme("Light")
+
         }
 
     }

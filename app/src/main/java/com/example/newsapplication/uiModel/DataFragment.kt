@@ -68,16 +68,16 @@ class DataFragment( ) : Fragment()  {
         viewModel.articles.observe(viewLifecycleOwner, Observer { articles->
             articles.let {article->
                 if(article.isEmpty()){
-                    if(viewModel.query.value!="")
+                   // binding.notFound.visibility=View.VISIBLE
+                    if(!viewModel.query.value.isNullOrEmpty())
                         binding.notFound.visibility=View.GONE
                     else
                         binding.notFound.visibility=View.VISIBLE
 
                 }
                 else if( adapter.newsList !=article) {
-                    adapter.submitList(article)
-                    if(viewModel.query.value=="")
                     binding.notFound.visibility=View.GONE
+                    adapter.submitList(article)
                 }
             }
             binding.progressBar.hide()

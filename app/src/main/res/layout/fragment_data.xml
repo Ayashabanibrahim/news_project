@@ -33,7 +33,7 @@
        android:layout_width="130dp"
        android:layout_height="130dp"
        android:layout_gravity="center"
-       android:visibility="visible"
+       android:visibility="gone"
       android:src="@drawable/img_5"/>
 
 
